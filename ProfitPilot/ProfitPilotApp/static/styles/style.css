@@ -415,3 +415,8 @@ h3{
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+#transaction_type_select{
+    z-index: -10;
+    text-align: center;
+}

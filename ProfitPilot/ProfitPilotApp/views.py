@@ -40,7 +40,13 @@ def transaction(request, id=None):
             amount = round(float(request.POST["amount"]), 2)
             if amount == 0: raise ValueError("amount")
             description = request.POST["description"]
-            new_transaction = models.Transactions(description=description, amount=amount, date=timezone.now(), user= request.user)
+            transaction_type_id = request.POST["transaction_type_id"]
+            if transaction_type_id != "":
+                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id)
+            else:
+                transaction_type = None
+            new_transaction = models.Transactions(description=description, amount=amount, date=timezone.now(),
+                                                  user=request.user, typesTransactions=transaction_type)
             new_transaction.save()
             return HttpResponse("Created transaction", status=200)
         except Exception as e:
