@@ -117,10 +117,9 @@ def periodic_transactions(request, id=None):
             raise Http404()
     elif request.method == 'DELETE':
         try:
-            print(id)
             periodic_transaction = models.Period_Transactions.objects.get(id=id)
             periodic_transaction.delete()
-            return HttpResponse('El objeto ha sido eliminado correctamente.', status=200)
+            return HttpResponse('Deleted successfully.', status=200)
         except models.Period_Transactions.DoesNotExist:
             raise Http404()
 
@@ -136,3 +135,43 @@ def periodic_transaction_withDates(period_transaction):
     period_transaction.update(dict_dates)
 
     return period_transaction
+
+def transaction_types_page(request):
+    if not request.user.is_authenticated:
+        return redirect("profit_pilot:index")
+    return render(request, "ProfitPilot/transactionTypes.html", {})
+
+def transaction_types(request, id=None):
+    if not request.user.is_authenticated:
+        return redirect("profit_pilot:login")
+
+    if request.method == 'POST':
+        try:
+            description = request.POST["description"]
+            name = request.POST["name"]
+            if name.strip() == '':
+                raise ValueError("name")
+            new_transaction_type = models.Types_Transactions(description=description, name=name, user=request.user)
+            new_transaction_type.save()
+            return HttpResponse("Created transaction type", status=200)
+        except Exception as e:
+            if e.args[0] == "name":
+                return HttpResponse("Name required", status=400)
+            return HttpResponse("Incorrect data", status=400)
+
+    elif request.method == 'GET':
+        try:
+            if id == None:
+                response = list(models.Types_Transactions.objects.all().order_by('-id').values())
+            else:
+                response = models.Types_Transactions.objects.values().get(id=id)
+            return JsonResponse(response, safe=False)
+        except models.Types_Transactions.DoesNotExist:
+            raise Http404()
+    elif request.method == 'DELETE':
+        try:
+            transaction_type = models.Types_Transactions.objects.get(id=id)
+            transaction_type.delete()
+            return HttpResponse('Deleted successfully.', status=200)
+        except models.Types_Transactions.DoesNotExist:
+            raise Http404()

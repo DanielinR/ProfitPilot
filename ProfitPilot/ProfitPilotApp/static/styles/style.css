@@ -1,7 +1,7 @@
 @import 'variables.css';
 
 @media (min-width: 0px) {
-    #form_period_transactions{
+    #list_form{
         grid-template-columns: 1fr;
     }
 }
@@ -11,7 +11,7 @@
     }
 }
 @media (min-width: 630px) {
-    #form_period_transactions{
+    #list_form{
         grid-template-columns: 100px 1fr;
     }
     .sidebar a {
@@ -34,13 +34,13 @@
     padding: 0px;
 }
 
-.card_periodicTransactions{
+.card_list{
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     flex: 6;
 }
 
-#cards_period_transactions{
+#cards_list{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,7 +69,7 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.deleteButton_periodicTransactions{
+.deleteButton_list{
     background-color: var(--red-color);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -199,7 +199,7 @@ header{
     margin-bottom: 5px;
 }
 
-.period_periodicTransactions{
+.div_period_periodicTransactions{
     font-size: 1.1rem;
     margin-bottom: 4px;
 }
@@ -310,6 +310,14 @@ header{
     text-align: center;
 }
 
+. separated_between_rows{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
 .centered_columns{
     display: flex;
     flex-direction: row;
@@ -354,18 +362,18 @@ h3{
     align-self: center;
 }
 
-#form_period_transactions{
+#list_form{
     display: grid;
     grid-gap: 16px;
     padding-bottom: 26px;
     width: 80%;
 }
 
-#form_period_transactions span{
+#list_form span{
    text-align: start;
 }
 
-#card_create_period_transactions{
+#card_create{
     display: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     align-self: center;
@@ -376,7 +384,7 @@ h3{
     z-index: 20;
 }
 
-#create_transaction_button{
+#create_button{
     font-size: 1em;
     height: 39px;
     width: 77px;
@@ -391,12 +399,19 @@ h3{
 }
 
 .overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 10;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.name_transaction_types{
+    background: var(--secondary-color);
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
 }

@@ -1,0 +1,21 @@
+{% extends "ProfitPilot/elementList.html" %}
+
+{% load static %}
+{% block scripts_list %}
+    <script src="{% static 'js/transactionTypes.js' %}"></script>
+{% endblock %}
+
+{% block title %}TRANSACTION TYPES{% endblock %}
+{% block form_title %}Create periodic transaction{% endblock %}
+
+{% block form %}
+    <span>Name:</span>
+    <input id="name_transaction_types" placeholder="Home things" required></input>
+    <span>Description:</span>
+    <input id="description_transaction_types" placeholder="important stuff..."></input>
+{% endblock %}
+
+{% block element %}
+    <div class="name_transaction_types"></div>
+    <div class="description_transaction_types"></div>
+{% endblock %}

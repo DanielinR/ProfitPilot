@@ -1,0 +1,36 @@
+{% extends "ProfitPilot/base.html" %}
+
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'js/elementList.js' %}"></script>
+    {% block scripts_list %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h2>{% block title %}{% endblock %}</h2>
+
+    <h1 id="open_form_button" class="button">+</h1>
+    {% csrf_token %}
+    <div id="cards_list"></div>
+</div>
+
+<form class="card centered_rows" id="card_create" action="javascript:void(0);">
+    {% csrf_token %}
+    <h2>{% block form_title %}{% endblock %}</h2>
+    <h3 id="feedback"></h3>
+    <div id="list_form">{% block form %}{% endblock %}</div>
+    <input class="button" id="create_button" type="submit" value="Create">
+</form>
+
+<div id="page-overlay" class="overlay"></div>
+
+<template id="element-template">
+    <div style="display: flex; margin: 1rem; width: 100%;">
+        <div class="card separated_between_rows card_list" style="margin-right: 0;">
+            {% block element %}{% endblock %}
+        </div>
+        <button class="deleteButton_list">🗑️</button>
+    </div>
+</template>
+{% endblock %}
