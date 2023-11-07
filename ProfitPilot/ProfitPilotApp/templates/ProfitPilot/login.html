@@ -1,0 +1,30 @@
+{% extends "ProfitPilot/base.html" %}
+
+{% block content %}
+<div class="centered_rows" style="flex: 1; margin-bottom: 200px;">
+        {% if messages %}
+            {% for message in messages %}
+                <div id="feedback" class="color_red">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    <div class="container">
+        <h1 style="margin: 15px;">Welcome</h1>
+        <form class="login_form" method="post" action="/login">
+            {% csrf_token %}
+            <div>
+                <div class="login_input">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required autocomplete="username" placeholder="username">
+                </div>
+                <div class="login_input">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="password">
+                </div>
+            </div>
+            <button class="button" type="submit" id="login_button">log in</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

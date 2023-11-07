@@ -1,0 +1,23 @@
+{% load static %}
+
+<header {% if loginscreen %} style="justify-content: center;" {% endif %}>
+    {% if not loginscreen %}
+        <a onclick="openNav()" id="menu_buton" class="button">☰</a>
+    {% endif %}
+    <div class="centered_columns" style="">
+        <img width="100px" src="{% static 'img/app_icon.png' %}" style="width:80px;">
+            PROFIT-PILOT
+        <img width="100px" src="{% static 'img/app_icon.png' %}" style="width:80px;">
+    </div>
+    {% if not loginscreen %}
+    <a href="{% url 'profit_pilot:logout' %}" id="logout_buton" class="button">Log out</a>
+    {% endif %}
+</header>
+
+<div id="mySidebar" class="sidebar">
+    <a style="box-shadow: 0 0 0;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{% url 'profit_pilot:index' %}">Home</a>
+    <a href="{% url 'profit_pilot:periodic_transactions_page' %}">Periodic transactions</a>
+    <a href="{% url 'profit_pilot:periodic_transactions_page' %}">Transaction types</a>
+<!--    <a href="#">Contacto</a>-->
+</div>

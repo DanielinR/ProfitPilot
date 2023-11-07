@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href= "{% static 'styles/style.css' %}">
+        <link rel="icon" href="{% static 'img/app_icon.png' %}">
+        <!-- Incluye jQuery desde la CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{% static 'js/header.js' %}"></script>
+        {% block scripts %} {% endblock %}
+        <title>ProfitPilot</title>
+    </head>
+    <body>
+        {% include "ProfitPilot/header.html" %}
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "ProfitPilot/base.html" %}
+
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'js/periodicTransactions.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <h2>PERIODIC TRANSACTIONS</h2>
+
+    <h1 id="open_form_transaction_button" class="button">+</h1>
+    {% csrf_token %}
+    <div id="cards_period_transactions"></div>
+</div>
+
+<form class="card centered_rows" id="card_create_period_transactions" action="javascript:void(0);">
+    {% csrf_token %}
+    <h2>Create periodic transaction</h2>
+    <h3 id="feedback"></h3>
+    <div id="form_period_transactions">
+        <span>Description:</span>
+        <input id="description_period_transactions" placeholder="House rent." required></input>
+        <span>Amount:</span>
+        <input type="number" step="0.01" id="amount_period_transactions" placeholder="0.00€" required></input>
+        <span>Period:</span>
+        <div style="display: flex; align-items: start; gap: 10px;">
+            <input type="number" step="1" id="period_period_transactions" placeholder="30"></input> <span>days</span></div>
+    </div>
+    <input class="button" id="create_transaction_button" type="submit" value="Create">
+</form>
+
+<div id="page-overlay" class="overlay"></div>
+{% endblock %}
