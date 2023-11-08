@@ -2,6 +2,7 @@
 
 {% load static %}
 {% block scripts_list %}
+    <script src="{% static 'js/transaction_types_select.js' %}"></script>
     <script src="{% static 'js/periodicTransactions.js' %}"></script>
 {% endblock %}
 
@@ -13,6 +14,8 @@
     <input id="description_period_transactions" placeholder="House rent." required></input>
     <span>Amount:</span>
     <input type="number" step="0.01" id="amount_period_transactions" placeholder="0.00€" required></input>
+    <span>Type:</span>
+    <select id="type_period_transactions"></select>
     <span>Period:</span>
     <div style="display: flex; align-items: start; gap: 10px;">
         <input type="number" step="1" id="period_period_transactions" placeholder="30"></input> <span>days</span>

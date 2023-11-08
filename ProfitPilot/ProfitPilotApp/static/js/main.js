@@ -1,7 +1,7 @@
 $(document).ready(function() {
     transactionsList_update();
     profitMonth_update();
-    transactionTypes_update();
+    transactionTypes_update("transaction_type_select");
     $("#transactions_button_positive").click(function() {makeTransaction($("#amount").val());});
     $("#transactions_button_negative").click(function() {makeTransaction(-($("#amount").val()));});
 });
@@ -61,22 +61,6 @@ function profitMonth_update(){
     });
 }
 
-function transactionTypes_update(){
-     $.get("/transaction_types", function(data, status){
-        $("#transaction_type_select").empty()
-          const newOption = document.createElement('option');
-          newOption.textContent = "";
-          newOption.value = "";
-          document.getElementById('transaction_type_select').appendChild(newOption);
-        $.each(data, function(index, transaction_type) {
-          const newOption = document.createElement('option');
-          newOption.textContent = transaction_type.name;
-          newOption.value = transaction_type.id;
-          document.getElementById('transaction_type_select').appendChild(newOption);
-        });
-    });
-}
-
 function feedbackText_setClass(classAdded){
     $("#feedback").removeClass();
     $("#feedback").addClass(classAdded);
@@ -85,6 +69,7 @@ function feedbackText_setClass(classAdded){
 function form_reset(){
     $("#amount").val("")
     $("#description").val("")
+    $("#transaction_type_select").val("")
 }
 
 function getCookie(name) {

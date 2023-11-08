@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 # Create your models here.
 class Types_Transactions(models.Model):
@@ -17,6 +18,8 @@ class Period_Transactions(models.Model):
     amount = models.FloatField()
     description = models.TextField()
     period_days = models.IntegerField()
+    start_date = models.DateField(default=datetime.date.today)
+    transaction_type = models.ForeignKey(Types_Transactions, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"{self.description} ({self.amount}€ cada {self.period_days} días)"
@@ -28,7 +31,7 @@ class Transactions(models.Model):
     typesTransactions = models.ForeignKey(Types_Transactions, on_delete=models.SET_NULL, null=True, blank=True)
     description = models.CharField(max_length=200, null=True, blank=True)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    date = models.DateField()
+    date = models.DateField(default=datetime.date.today)
 
     def __str__(self):
         return f"{self.amount}€ - {self.description}"

@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ['192.168.1.200', '.localhost', '127.0.0.1', '[::1]', '10.20.30.
 # Application definition
 
 INSTALLED_APPS = [
+    'django_crontab',
     'ProfitPilotApp.apps.ProfitpilotappConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,3 +132,7 @@ STATIC_URL = 'templates/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRONJOBS = [
+    ('/1 * * * *', 'ProfitPilotApp.cron.periodic_transactions'),
+]

@@ -94,13 +94,26 @@ def periodic_transactions(request, id=None):
             amount = round(float(request.POST["amount"]), 2)
             if amount == 0:
                 raise ValueError("amount")
+            transaction_type_id = request.POST["type"]
+            if transaction_type_id != "":
+                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id)
+            else:
+                transaction_type = None
             period = int(request.POST["period"])
             description = request.POST["description"]
             if description.strip() == '':
                 raise ValueError("description")
             new_period_transaction = models.Period_Transactions(description=description, amount=amount, period_days=period,
-                                                                user=request.user)
+                                                                user=request.user, transaction_type=transaction_type)
             new_period_transaction.save()
+
+            #cuando creamos una transaccion periodica, creamos tambien su primera transaccion y las siguientes las creara el cron.py
+            new_transaction = models.Transactions(description=new_period_transaction.description,
+                                           amount=new_period_transaction.amount,
+                                           date=new_period_transaction.start_date, user=new_period_transaction.user,
+                                           typesTransactions=new_period_transaction.transaction_type, periodTransaction=new_period_transaction)
+            new_transaction.save()
+
             return HttpResponse("Created transaction", status=200)
         except Exception as e:
             if e.args[0] == "amount":
