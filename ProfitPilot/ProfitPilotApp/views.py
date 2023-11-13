@@ -9,6 +9,7 @@ from django.http import HttpResponse, Http404, JsonResponse
 # Create your views here.
 @never_cache
 def log_in(request):
+        print("login")
     if request.user.is_authenticated:
         return redirect("profit_pilot:index")
 
@@ -26,9 +27,11 @@ def log_in(request):
     return render(request, "ProfitPilot/login.html", {"loginscreen": True})
 
 def index(request):
+    print("index")
     if not request.user.is_authenticated:
+        print("antes login")
         return redirect("profit_pilot:login")
-
+    print("autenticado")
     return render(request, "ProfitPilot/index.html", {})
 
 def transaction(request, id=None):
