@@ -28,9 +28,9 @@ LOGOUT_REDIRECT_URL = '/login'
 SECRET_KEY = 'django-insecure-%*=s24b6sx^w041t-%&$_l-%--tw^ngj-g7$o$^mhu!uw#o^hn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.1.200', '.localhost', '127.0.0.1', '[::1]', '10.20.30.1',]
+ALLOWED_HOSTS = ['192.168.1.200', '.localhost', '127.0.0.1', '[::1]', '10.20.30.1','danielin.xyz',]
 
 
 # Application definition
@@ -126,13 +126,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'templates/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRONJOBS = [
-    ('/1 * * * *', 'ProfitPilotApp.cron.periodic_transactions'),
-]
+# CRONJOBS = [
+#     ('/1 * * * *', 'ProfitPilotApp.cron.periodic_transactions'),
+# ]
