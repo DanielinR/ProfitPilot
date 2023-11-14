@@ -11,7 +11,7 @@ from ProfitPilotApp.models import Period_Transactions
 from ProfitPilotApp.models import Transactions
 
 def periodic_transactions():
-    print("ejecutando transacciones periodicas")
+    print(f"Ejecutando transacciones periodicas: {datetime.date.today()}")
     periodic_transactions = Period_Transactions.objects.all().order_by('-id')
     for periodic_transaction in periodic_transactions:
         create_Transactions(periodic_transaction)
