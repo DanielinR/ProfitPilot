@@ -9,7 +9,7 @@ from django.http import HttpResponse, Http404, JsonResponse
 # Create your views here.
 @never_cache
 def log_in(request):
-    print("login")
+        print("login")
     if request.user.is_authenticated:
         return redirect("profit_pilot:index")
 
