@@ -41,7 +41,7 @@ def transaction(request, id=None):
             description = request.POST["description"]
             transaction_type_id = request.POST["transaction_type_id"]
             if transaction_type_id != "":
-                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id)
+                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id, user=request.user)
             else:
                 transaction_type = None
             new_transaction = models.Transactions(description=description, amount=amount, date=timezone.now(),
@@ -56,9 +56,9 @@ def transaction(request, id=None):
     else:
         try:
             if id == None:
-                response = list(models.Transactions.objects.all().order_by('-id').values())
+                response = list(models.Transactions.objects.all().filter(user=request.user).order_by('-id').values())
             else:
-                response = models.Transactions.objects.values().get(id=id)
+                response = models.Transactions.objects.values().get(id=id, user=request.user)
             return JsonResponse(response, safe=False)
         except models.Transactions.DoesNotExist:
             raise Http404()
@@ -69,7 +69,7 @@ def profit_month(request):
 
     try:
         month = timezone.now().month
-        month_transactions = list(models.Transactions.objects.all().filter(date__month=month).values())
+        month_transactions = list(models.Transactions.objects.all().filter(date__month=month, user=request.user).values())
 
         profit = 0
         for transaction in month_transactions:
@@ -95,7 +95,7 @@ def periodic_transactions(request, id=None):
                 raise ValueError("amount")
             transaction_type_id = request.POST["type"]
             if transaction_type_id != "":
-                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id)
+                transaction_type = models.Types_Transactions.objects.get(id=transaction_type_id, user=request.user)
             else:
                 transaction_type = None
             period = int(request.POST["period"])
@@ -124,18 +124,18 @@ def periodic_transactions(request, id=None):
     elif request.method == 'GET':
         try:
             if id == None:
-                response = list(models.Period_Transactions.objects.all().order_by('-id').values())
+                response = list(models.Period_Transactions.objects.all().filter(user=request.user).order_by('-id').values())
                 for i in range(len(response)):
                     response[i] = periodic_transaction_withDates(response[i])
             else:
-                response = models.Period_Transactions.objects.values().get(id=id)
+                response = models.Period_Transactions.objects.values().get(id=id, user=request.user)
                 response = periodic_transaction_withDates(response)
             return JsonResponse(response, safe=False)
         except models.Period_Transactions.DoesNotExist:
             raise Http404()
     elif request.method == 'DELETE':
         try:
-            periodic_transaction = models.Period_Transactions.objects.get(id=id)
+            periodic_transaction = models.Period_Transactions.objects.get(id=id, user=request.user)
             periodic_transaction.delete()
             return HttpResponse('Deleted successfully.', status=200)
         except models.Period_Transactions.DoesNotExist:
@@ -180,15 +180,15 @@ def transaction_types(request, id=None):
     elif request.method == 'GET':
         try:
             if id == None:
-                response = list(models.Types_Transactions.objects.all().order_by('-id').values())
+                response = list(models.Types_Transactions.objects.all().filter(user=request.user).order_by('-id').values())
             else:
-                response = models.Types_Transactions.objects.values().get(id=id)
+                response = models.Types_Transactions.objects.values().get(id=id, user=request.user)
             return JsonResponse(response, safe=False)
         except models.Types_Transactions.DoesNotExist:
             raise Http404()
     elif request.method == 'DELETE':
         try:
-            transaction_type = models.Types_Transactions.objects.get(id=id)
+            transaction_type = models.Types_Transactions.objects.get(id=id, user=request.user)
             transaction_type.delete()
             return HttpResponse('Deleted successfully.', status=200)
         except models.Types_Transactions.DoesNotExist:
