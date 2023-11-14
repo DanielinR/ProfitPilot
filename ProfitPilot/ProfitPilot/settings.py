@@ -134,6 +134,6 @@ STATIC_ROOT = '/var/www/profit_pilot/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CRONJOBS = [
-#     ('/1 * * * *', 'ProfitPilotApp.cron.periodic_transactions'),
-# ]
+CRONJOBS = [
+    ('/1 * * * *', 'ProfitPilotApp.cron.periodic_transactions'),
+]
