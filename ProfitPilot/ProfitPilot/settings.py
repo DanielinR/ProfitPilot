@@ -25,7 +25,7 @@ LOGOUT_REDIRECT_URL = '/login'
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%*=s24b6sx^w041t-%&$_l-%--tw^ngj-g7$o$^mhu!uw#o^hn'
+SECRET_KEY = os.getenv("SECRETKEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -137,3 +137,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRONJOBS = [
     ('* * */1 * *', 'ProfitPilotApp.cron.periodic_transactions', '>> /home/ubuntu/app/ProfitPilot/cronlog.log 2>&1'),
 ]
+
+# Security settings
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
