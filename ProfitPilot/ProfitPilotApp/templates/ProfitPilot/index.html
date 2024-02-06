@@ -7,25 +7,26 @@
 {% endblock %}
 
 {% block content %}
+<div id="bg-image"></div>
 <div id="content">
     <div id="profit">
-        <h2 id="profit_month_text">Profit del mes:</h2>
+        <h2 id="profit_month_text" style="margin: 0;">Month profit:</h2>
         <span id="profit_month_amount"></span>
     </div>
     <form id="transactions_form">
         {% csrf_token %}
-        <h2>ADD TRANSACTION</h2>
-        <div class="centered_column" style="margin-bottom: 10px;"><label for="transaction_type_select">Transaction type: </label> <select id="transaction_type_select"></select></div>
+        <h3 style="margin-bottom: 5px;">CREATE TRANSACTION</h3>
+        <div class="centered_column" style="margin-bottom: 10px;display: flex;flex-direction: column; align-items: center;"><label for="transaction_type_select">Type: </label> <select id="transaction_type_select"></select></div>
         <div id="transactions_input">
+            <div class="centered_rows">
+                <h3>Description:</h3>
+                <input type="text" name="description" id="description" placeholder="">
+            </div>
+            <br>
             <div class="centered_columns">
                 <input class="button" id="transactions_button_negative" type="button" value = "-">
                 <input type="number" name="amount", id="amount" placeholder="0.00€">
                 <input class="button" id="transactions_button_positive" type="button" value = "+">
-            </div>
-            <br>
-            <div class="centered_rows">
-                <h3>Description:</h3>
-                <input type="text" name="description" id="description" placeholder="Description">
             </div>
         </div>
     </form>

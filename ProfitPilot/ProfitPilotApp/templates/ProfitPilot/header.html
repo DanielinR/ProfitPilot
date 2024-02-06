@@ -1,13 +1,15 @@
 {% load static %}
 
-<header {% if loginscreen %} style="justify-content: center;" {% endif %}>
+<header {% if loginscreen %} style="position: fixed;" {% else %} style="background-color: var(--neutral-500);" {% endif %}>
     {% if not loginscreen %}
         <a onclick="openNav()" id="menu_buton" class="button">☰</a>
     {% endif %}
-    <div class="centered_columns" style="">
-        <img width="100px" src="{% static 'img/app_icon_3.png' %}" style="width:80px;">
-            PROFIT-PILOT
-        <img width="100px" src="{% static 'img/app_icon_3.png' %}" style="width:80px;">
+    <div class="centered_columns" style="font-size: 20px; font-weight: bold; text-shadow: 4px 4px 2px rgba(0,0,0,0.6);">
+        <img width="50px" src="{% static 'img/app_icon_3.png' %}" style="width: 50px;">
+        <div class="display: flex; flex-gap:10px;">
+            <span>PROFIT</span>
+            <span style="color:var(--brand-500);">PILOT</span>
+        </div>
     </div>
     {% if not loginscreen %}
     <a href="{% url 'profit_pilot:logout' %}" id="logout_buton" class="button">Log out</a>
@@ -15,7 +17,8 @@
 </header>
 
 <div id="mySidebar" class="sidebar">
-    <a style="box-shadow: 0 0 0;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- <a style="box-shadow: 0 0 0;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+    <div style="height: 2px;"></div>
     <a href="{% url 'profit_pilot:index' %}">Home</a>
     <a href="{% url 'profit_pilot:periodic_transactions_page' %}">Periodic transactions</a>
     <a href="{% url 'profit_pilot:transaction_types_page' %}">Transaction types</a>

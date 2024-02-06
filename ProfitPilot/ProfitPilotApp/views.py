@@ -21,7 +21,7 @@ def log_in(request):
             login(request, user)
             return redirect("profit_pilot:index")
         else:
-            messages.error(request, 'Nombre de usuario o contraseña incorrectos')
+            messages.error(request, 'Incorrect credentials')
 
     return render(request, "ProfitPilot/login.html", {"loginscreen": True})
 

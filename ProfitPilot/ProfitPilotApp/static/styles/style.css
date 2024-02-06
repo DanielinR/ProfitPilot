@@ -4,10 +4,13 @@
     #list_form{
         grid-template-columns: 1fr;
     }
+    .container{
+        padding: 2.4rem;
+    }
 }
 @media (min-width: 365px) {
     .sidebar a {
-        padding: 2px 2px 2px 10px;
+        padding: 10px 2px 10px 10px;
     }
 }
 @media (min-width: 630px) {
@@ -18,6 +21,9 @@
         padding: 8px 8px 8px 32px;
         font-size: 18px;
     }
+    .container{
+        padding: 4rem;
+    }
 }
 @media (min-width: 1200px) {
     .sidebar a {
@@ -25,10 +31,18 @@
     }
 }
 
+.login-bg{
+    background-image: url("/static/img/login-bg.png");
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    padding-top: 7rem;
+}
+
 .card{
-    background-color: var(--primary-color);
+    background-color: var(--neutral-500-transparent);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     padding: 1rem;
     text-align: center;
     padding: 0px;
@@ -55,7 +69,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--primary-color);
+  background-color: var(--neutral-500-transparent);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -67,10 +81,13 @@
   display: block;
   transition: 0.3s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--neutral-700);
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .deleteButton_list{
-    background-color: var(--red-color);
+    background-color: var(--error-500);
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     width: 60px;
@@ -85,13 +102,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    background-color: var(--primary-color);
-    width: 320px;
-    height: 160px;
+    background-color: var(--neutral-500);
     border: 1px solid var(--secondary-color);
-    padding: 16px;
-    border-radius: 4px;
+    --tw-bg-opacity: 0.95;
+    border-radius: 0.5rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.96;
+    gap: 2.7rem;
 }
 
 html{
@@ -113,7 +130,7 @@ body{
 }
 
 header{
-    height: 9vh;
+    height: 7vh;
     display: flex;
     justify-content: space-between;
     background: var(--secondary-color);
@@ -121,6 +138,7 @@ header{
     text-align: center;
     margin: 0;
     font-size: 1.8rem;
+    z-index: 20;
 }
 
 #content{
@@ -130,22 +148,47 @@ header{
     align-items: center;
 }
 
+.description_transaction_types{
+    padding: 10px;
+}
+
+#bg-image{
+    background-image: url("/static/img/bg5.png");
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(1.0);
+    width: 108%;
+    height: 108%;
+    translate: -10px -10px;
+    position: fixed;
+    z-index: -10;
+}
+
+#logout_buton:hover{
+    background-color: var(--neutral-700);
+}
+
 #logout_buton{
     font-size:1rem;
     width:90px;
     height:40px;
-    border-style: outset;
-    border-color: buttonborder;
     text-decoration: none;
+    box-shadow: none;
+    background-color: var(--neutral-400);
+}
+
+#menu_buton:hover{
+    background-color: var(--neutral-700);
 }
 
 #menu_buton{
+    cursor: pointer;
     font-size:1.8rem;
-    width:90px;
+    width:70px;
     height:40px;
-    border-style: outset;
-    border-color: buttonborder;
     text-decoration: none;
+    background-color: var(--neutral-400);
+    box-shadow: none;
 }
 
 #profit_month_text{
@@ -153,27 +196,35 @@ header{
 }
 
 #profit_month_amount{
-    font-size: 50px;
+    font-size: 40px;
     margin-bottom: 16px;
-    background: var(--text-color);
-    padding: 17px;
+    background: var(--neutral-700);
+    padding: 12px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #profit{
     flex: 1;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--neutral-500-transparent);
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0.5rem;    
 }
 
 #transactions_form{
+    padding: 1rem;
+    border-radius: 0.5rem;    
+    background-color: var(--neutral-500-transparent);
     flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 11px;
 }
 
 #transactions_input{
@@ -183,7 +234,7 @@ header{
 }
 
 .description_periodicTransactions{
-    background-color: var(--secondary-color);
+    background-color: var(--neutral-700);
     width: 100%;
     font-size: 1.2rem;
     font-weight: bold;
@@ -209,19 +260,35 @@ header{
 }
 
 #amount{
+    color: var(--text-color);
     height: 120px;
     width: 120px;
     border-radius: 14px;
+    background-color: var(--neutral-700);
     text-align: center;
     font-size: 35px;
 }
 
 #description{
     text-align: center;
-    height: 26px;
+    padding: 4px;
+    margin: 2px;
     width: 250px;
     border-radius: 8px;    
+    background-color: var(--neutral-700);
+    color: var(--text-color);
     font-size: 14px;
+}
+
+#transactions_button_negative,
+#transactions_button_positive{
+    background-color: var(--brand-500);
+    cursor: pointer;
+}
+
+#transactions_button_negative:hover,
+#transactions_button_positive:hover{
+    background-color: var(--brand-700);
 }
 
 .button{
@@ -230,7 +297,7 @@ header{
     align-items: center;
     text-align: center;
     flex-direction: column;
-
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
     font-size: 50px;
     color: var(--text-color);
     background: var(--primary-color);
@@ -247,10 +314,10 @@ header{
     gap: 16px;
     width: 25em;
     font-size: 0.83em;
-    background-color: var(--text-color);
+    background-color: var(--neutral-500-transparent);
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    margin-bottom: 25px;
+    margin-bottom: 5px;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -280,17 +347,23 @@ header{
 }
 
 .color_green{
-    color: green;
-    border: 3px solid green;
+    color: var(--correct-400);
+    background-color: var(--correct-800);
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 0.5rem;
+    border: 3px solid var(--correct-500);
 }
 .color_red{
-    color: red;
-    border: 3px solid red;
+    color: var(--error-400);
+    background-color: var(--error-800);
+    padding: 7px;
+    margin-bottom: 5px;
+    border-radius: 0.5rem;
+    border: 3px solid var(--error-500);
 }
 
 #feedback{
-    height: 30px;
-    margin-bottom: 10px;
     box-sizing: border-box;
 }
 
@@ -310,7 +383,7 @@ header{
     text-align: center;
 }
 
-. separated_between_rows{
+.separated_between_rows{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -341,7 +414,9 @@ h3{
 
 .login_input{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    gap: 3px;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom: 5px;
@@ -352,14 +427,30 @@ h3{
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
+    gap: 2rem;
+    font-size: larger;
+}
+
+.login_form input{
+    color: white;
+    padding: 6px;
+    background-color: var(--neutral-700);
+    opacity: 100;
+    border: solid var(--neutral-300);
+    border-radius: 0.2rem;
+    border-width: 1px;
 }
 
 #login_button{
-    background-color: var(--secondary-color);
+    background-color: var(--brand-500);
+    padding: 0.75rem;
+    height: 5rem; width: 5rem; 
     font-size: 1rem;
-    height: 27px;
-    width: 100px;
     align-self: center;
+}
+
+#login_button:hover{
+    background-color: var(--brand-700);
 }
 
 #list_form{
@@ -373,11 +464,18 @@ h3{
    text-align: start;
 }
 
+input, select{
+    background-color: var(--neutral-700);
+    color: var(--text-color)
+}
+
 #card_create{
+    background-color: var(--neutral-500-transparent);
     display: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     align-self: center;
-    bottom: 40%;
+    top: 50%;
+    transform: translate(0, -50%);
     width: 60%;
     max-width: 800px;
     position: fixed;
@@ -385,10 +483,10 @@ h3{
 }
 
 #create_button{
+    background-color: var(--brand-500);
     font-size: 1em;
     height: 39px;
     width: 77px;
-    background-color: var(--red-color);
 }
 
 #period_period_transactions{
@@ -417,6 +515,13 @@ h3{
 }
 
 #transaction_type_select{
-    z-index: -10;
     text-align: center;
+    min-width: 120px;
+    min-height: 20px;
+    background-color: var(--neutral-700);
+    border-radius: 8px;    
+    font-size: 14px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.2rem;
 }

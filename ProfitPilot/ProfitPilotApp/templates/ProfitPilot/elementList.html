@@ -7,10 +7,11 @@
 {% endblock %}
 
 {% block content %}
+<div id="bg-image"></div>
 <div id="content">
-    <h2>{% block title %}{% endblock %}</h2>
+    <h2 style="text-shadow: 4px 4px 2px rgba(0,0,0,0.6); background-color: var(--neutral-500-transparent-more); padding: 12px; border-radius: 0.6rem;">{% block title %}{% endblock %}</h2>
 
-    <h1 id="open_form_button" class="button">+</h1>
+    <h1 id="open_form_button" style="background-color: var(--brand-500); border-radius: 100px;" class="button">+</h1>
     {% csrf_token %}
     <div id="cards_list"></div>
 </div>

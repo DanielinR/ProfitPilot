@@ -2,7 +2,7 @@ function transactionTypes_update(idSelect){
      $.get("/transaction_types", function(data, status){
         $("#"+idSelect).empty()
           const newOption = document.createElement('option');
-          newOption.textContent = "";
+          newOption.textContent = "-No type-";
           newOption.value = "";
           document.getElementById(idSelect).appendChild(newOption);
         $.each(data, function(index, transaction_type) {
