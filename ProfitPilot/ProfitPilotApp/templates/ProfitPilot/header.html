@@ -1,6 +1,6 @@
 {% load static %}
 
-<header {% if loginscreen %} style="position: fixed;" {% else %} style="background-color: var(--neutral-500);" {% endif %}>
+<header {% if loginscreen %} style="position: fixed; background: none;" {% else %} style="background-color: var(--neutral-500);" {% endif %}>
     {% if not loginscreen %}
         <a onclick="openNav()" id="menu_buton" class="button">☰</a>
     {% endif %}
