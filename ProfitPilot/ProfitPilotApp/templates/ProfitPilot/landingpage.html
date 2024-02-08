@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+{% load compress %}
 {% load static %}
 
 <head>
@@ -8,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ProfitPilot</title>
     <meta name="description" content="Savings register app" />
-    <script src="{% static 'styles/tailwind.js' %}"></script>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
     <link rel="icon" href="/static/img/app_icon_3.png" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'styles/landingStyle.css' %}?v=1.0">
 </head>
