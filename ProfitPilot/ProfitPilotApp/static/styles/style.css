@@ -153,7 +153,8 @@ header{
 }
 
 #bg-image{
-    background-image: url("/static/img/bg5.png");
+    /* background-image: url("/static/img/bg5.png"); */
+    background-color: var(--neutral-700);
     background-size: cover;
     background-position: center;
     filter: blur(5px) brightness(1.0);
@@ -169,12 +170,12 @@ header{
 }
 
 #logout_buton{
-    font-size:1rem;
-    width:90px;
-    height:40px;
+    font-size:0.8rem;
+    width:70px;
+    height:32px;
     text-decoration: none;
     box-shadow: none;
-    background-color: var(--neutral-400);
+    background-color: var(--neutral-700);
 }
 
 #menu_buton:hover{
@@ -234,7 +235,7 @@ header{
 }
 
 .description_periodicTransactions{
-    background-color: var(--neutral-700);
+    background-color: var(--neutral-400);
     width: 100%;
     font-size: 1.2rem;
     font-weight: bold;
@@ -508,7 +509,7 @@ input, select{
 }
 
 .name_transaction_types{
-    background: var(--secondary-color);
+    background-color: var(--neutral-400);
     width: 100%;
     font-size: 1.2rem;
     font-weight: bold;

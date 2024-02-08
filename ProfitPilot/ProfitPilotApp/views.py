@@ -30,6 +30,10 @@ def index(request):
         return redirect("profit_pilot:login")
     return render(request, "ProfitPilot/index.html", {})
 
+
+def landingpage(request):
+    return render(request, "ProfitPilot/landingpage.html", {})
+
 def transaction(request, id=None):
     if not request.user.is_authenticated:
         return redirect("profit_pilot:login")

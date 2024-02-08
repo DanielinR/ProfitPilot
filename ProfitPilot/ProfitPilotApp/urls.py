@@ -6,7 +6,8 @@ from . import views
 app_name = "profit_pilot"
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.landingpage, name="landingpage"),
+    path("home", views.index, name="index"),
     path("login", views.log_in, name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path("transaction/<int:id>", views.transaction, name="transaction"),

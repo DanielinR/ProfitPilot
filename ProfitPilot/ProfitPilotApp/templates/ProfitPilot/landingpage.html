@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ProfitPilot</title>
+    <meta name="description" content="Savings register app" />
+    <script src="{% static 'styles/tailwind.js' %}"></script>
+    <link rel="icon" href="/static/img/app_icon_3.png" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/landingStyle.css' %}?v=1.0">
+</head>
+
+<body class="${poppins.className} antialiased min-h-screen w-full bg-[#1B2327] overflow-auto">
+    <header class="bg-[#0D151A] h-14 sm:h-20 w-full flex justify-between items-center pr-3 sm:pr-8 pl-1">
+        <img src="/static/img/app_icon_3.png" class="h-12 w-12 sm:h-16 sm:w-16" />
+        <a class="bg-[#3BD138] px-3 py-2 rounded-md text-white shadow-text hover:bg-[#0E990C]" href="/login">START
+            NOW</a>
+    </header>
+    <main class="w-full flex flex-col">
+        <section
+            class="principalSection h-[45vh] sm:h-[65vh] w-full flex flex-col md:flex-row relative items-center justify-evenly bg-cover bg-center">
+            <div class="absolute h-full w-full backdrop-brightness-[0.4]"></div>
+            <div class="px-7 mb-10 md:mb-0 w-full md:h-auto z-10 flex flex-col gap-4 items-center">
+                <div class="flex gap-2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-extrabold text-center"
+                        style="text-shadow: 4px 4px 2px rgba(0,0,0,0.6);">PROFIT</h1>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl text-[#3BD138] font-extrabold text-center"
+                        style="text-shadow: 4px 4px 2px rgba(0,0,0,0.6);">PILOT</h1>
+                </div>
+                <h2 class="text-xl md:text-2xl lg:text-3xl text-white font-normal text-center"
+                    style="text-shadow: 4px 4px 2px rgba(0,0,0,0.5);">The best app for managing your expenses.</h1>
+            </div>
+            <!-- <img src="/static/img/landing/rat3.png"
+                class="hidden md:block w-4/5 sm:w-2/3 px-10 pb-20 md:pb:0 md:w-1/3 md:h-auto md:px-0 md:pr-5 z-10 rounded-full p-4" /> -->
+        </section>
+        <section class="flex justify-evenly w-full">
+            <div class="flex flex-col items-center gap-0 pt-5 lg:gap-10 lg:pt-10">
+                <div class="pb-2">
+                    <h3
+                        class="hidden sm:flex items-center justify-center h-12 text-white font-semibold md:text-bold text-base md:text-3xl lg:text-4xl text-center pb-0">
+                        Less difficult.</h3>
+                    <h3
+                        class="hidden md:flex items-center justify-center h-24 text-white font-normal text-base lg:text-xl w-72 lg:w-96 text-center">
+                        Simple integration of a savings management
+                        application, forget about an overwhelming and complicated interface.</h3>
+                </div>
+                <button
+                    class="hidden sm:flex relative bg-[#3BD138] rounded-2xl w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:h-40 lg:w-40 flex-col items-center justify-start bg-opacity-75 border-r-4 border-b-8 border-[#1c531b] hover:bg-[#338d32] shadow-xl active:translate-y-1 active:border-2">
+                    <span
+                        class="shadow-text absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 text-white text-7xl lg:text-9xl">-</span>
+                </button>
+            </div>
+            <img class="hidden sm:block w-[30%] md:w-[20%] rounded-xl shadow-2xl -translate-y-44 md:-translate-y-28 lg:-translate-y-36"
+                src="/static/img/landing/screenshot2.png">
+            <div class="flex flex-col items-center gap-0 pt-5 lg:gap-10 lg:pt-10">
+                <div class="pb-2">
+                    <h3
+                    class="hidden sm:flex items-center justify-center h-12 text-white font-semibold md:text-bold text-base md:text-3xl lg:text-4xl text-center pb-0">
+                        More affordable</h3>
+                    <h3
+                        class="hidden md:flex items-center justify-center h-24 text-white font-normal text-base lg:text-xl w-72 lg:w-96 text-center">
+                        Completely free and easily accessible, what are you waiting for to try it? Wake up your economic
+                        awareness now!</h3>
+                </div>
+                <button
+                    class="hidden sm:flex relative bg-[#3BD138] rounded-2xl w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:h-40 lg:w-40 flex-col items-center justify-start bg-opacity-75 border-r-4 border-b-8 border-[#1c531b] hover:bg-[#338d32] shadow-xl active:translate-y-1 active:border-2">
+                    <span
+                        class="shadow-text absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 text-white text-6xl lg:text-8xl">+</span>
+                </button>
+            </div>
+        </section>
+        <section class="pt-0 pb-10 flex sm:hidden w-full justify-evenly items-center pr-6">
+            <div class="flex flex-col items-center justify-evenly p-4 pr-7">
+                <button
+                    class="flex sm:hidden relative bg-[#3BD138] rounded-2xl w-14 h-14 sm:w-20 sm:h-20 md:w-32 md:h-32 lg:h-40 lg:w-40 flex-col items-center justify-start bg-opacity-75 border-b-4 border-[#1c531b] hover:bg-[#338d32] shadow-xl active:translate-y-1 active:border-2">
+                    <span
+                        class="shadow-text absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 text-white text-6xl lg:text-8xl">+</span>
+                </button>
+                <h3
+                    class="pt-2 flex sm:hidden items-center justify-center text-white font-semibold text-lg text-center">
+                    More affordable</h3>
+                <h3 class="flex items-center justify-center text-white font-normal text-center text-xs">
+                    Completely free and easily accessible, what are you waiting for to try it? Wake up your economic
+                    awareness now!</h3>
+                <button
+                    class="mt-7 flex sm:hidden relative bg-[#3BD138] rounded-2xl w-14 h-14 flex-col items-center justify-start bg-opacity-75 border-b-4 border-[#1c531b] hover:bg-[#338d32] shadow-xl active:translate-y-1 active:border-2">
+                    <span
+                        class="shadow-text absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 text-white text-7xl lg:text-9xl">-</span>
+                </button>
+                <h3
+                    class="pt-2 flex sm:hidden items-center justify-center text-white font-semibold text-lg text-center">
+                    Less difficult</h3>
+                <h3 class="flex items-center justify-center text-white font-normal text-center text-xs">
+                    Simple integration of a savings management
+                    application, forget about an overwhelming and complicated interface.</h3>
+            </div>
+            <img class="w-[40%] rounded-xl shadow-2xl" src="/static/img/landing/screenshot2.png">
+        </section>
+        <footer
+            class="bg-[#0D151A] h-16 w-full flex flex-col sm:flex-row gap-1 sm:gap-10 items-start sm:items-center pl-3 pt-3 sm:pt-0 sm:pl-10 text-white relative font-light text-xs sm:text-base">
+            <span>Daniel Romero Hernandez</span>
+            <span>da.romero.hernandez@gmail.com</span>
+            <a class="flex items-center absolute right-4 sm:right-8"
+                href="https://es.linkedin.com/in/daniel-romero-hern%C3%A1ndez-bba256228/en?trk=people-guest_people_search-card"
+                target="_blank"><img src="static/img/landing/linkedin.png" class="h-8 w-8" /></a>
+        </footer>
+    </main>
+</body>
+
+</html>

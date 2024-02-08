@@ -1,0 +1,14 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.principalSection{
+    background-image: url("/static/img/landing/landing_bg.png");
+}
+
+.shadow-text{
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.6);
+}
