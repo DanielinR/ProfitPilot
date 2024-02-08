@@ -32,10 +32,16 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1','profitpilot.danielin.xyz']
 
+COMPRESS_ROOT = BASE_DIR / 'ProfitPilotApp/static/'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 # Application definition
 
 INSTALLED_APPS = [
+    'compressor',
     'django_crontab',
     'ProfitPilotApp.apps.ProfitpilotappConfig',
     'django.contrib.admin',
