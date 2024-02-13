@@ -165,6 +165,28 @@ header{
     z-index: -10;
 }
 
+.google-button:hover{
+    background-color: var(--neutral-800);
+    cursor: pointer;
+}
+
+.google-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content; 
+    padding-left: 36px; 
+    padding-right: 36px; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    border-radius: 10px; 
+    border-style: none; 
+    align-self: start;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: var(--neutral-700);
+    margin-left: 20px;
+}
+
 #logout_buton:hover{
     background-color: var(--neutral-700);
 }
@@ -293,6 +315,7 @@ header{
 }
 
 .button{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
